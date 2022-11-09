@@ -1,0 +1,82 @@
+< !DOCTYPE HTML>
+    <html>
+
+    <head>
+        <title>
+            Get number of days in
+            a specified month
+        </title>
+    </head>
+
+    <body style="text-align:center;">
+
+        <h1 style="color:green;">
+            Testy funkcji getDate
+        </h1>
+
+        <p id="GFG_UP" style="font-size: 15px; font-weight: bold;">
+        </p>
+
+        <button onclick="GFG_Fun()">
+            click here
+        </button>
+
+        <p id="GFG_DOWN" style="color:green; font-size: 20px; font-weight: bold;">
+        </p>
+        <p id="date" style="font-size: 15px;color: blue;">
+        </p>
+
+        <script>
+            var up = document.getElementById('GFG_UP');
+            var date = document.getElementById('date')
+
+            up.innerHTML = "Click on button to get the"
+                + " number of days in specified month";
+
+            var down = document.getElementById('GFG_DOWN');
+
+            function daysInMonth(month, year) {
+                return new Date(year, month + 1, 0).getDate();
+            }
+            function daysInMonthNew(month, year) {
+                return new Date(year, month, 0).getDate();
+            }
+
+            function GFG_Fun() {
+                var date = new Date();
+                var month = 2;
+                var year = 2021;
+                down.innerHTML = "Number of days in " + month
+                    + "nd month of the year " + year
+                    + " is " + daysInMonth(month, year);
+                checkGetDate()
+            }
+            function checkGetDate() {
+                const result = [];
+                for (var i = 1; i < 13; i++) {
+                    result.push('Aktualna funkcja-W miesiącu ' + i + ' jest dni: ' + daysInMonth(i, 2022));
+                    console.log('Aktualna funkcja-W miesiącu ' + i + ' jest dni: ' + daysInMonth(i, 2022))
+                }
+                result.push('')
+                for (var i = 1; i < 13; i++) {
+                    result.push('Nowa funkcja-W miesiącu ' + i + ' jest dni: ' + daysInMonthNew(i, 2022));
+                    console.log('Nowa funkcja-W miesiącu ' + i + ' jest dni: ' + daysInMonthNew(i, 2022))
+
+                }
+
+                let text = "<ul>";
+                result.forEach(myFunction);
+                text += "</ul>";
+
+                function myFunction(value) {
+                    text += "<li>" + value + "</li>";
+                }
+                date.innerHTML = text;
+
+
+
+                }
+        </script>
+    </body>
+
+    </html>
